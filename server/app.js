@@ -3,17 +3,14 @@ if (process.env.NODE_ENV !== "production") {
 }
 const dbPassword = process.env.Mongo_Atlas_Password;
 const mongoLogin = process.env.Mongo_login;
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+const path = require("path");
 
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const moment = require("moment");
 const mongoose = require("mongoose");
 
-const SingleDay = require("./models/singleDay.js");
-
-const existingProducts = require("./products.js");
 const apiRoutes = require("./routes/api.js");
 
 app.use(cors());
@@ -37,6 +34,14 @@ mongoose.connect("mongodb+srv://"+ mongoLogin +":" + dbPassword+ "@calendar.uwuz
 
 // ROUTES 
 app.use("/api/", apiRoutes);
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("client/build"));
+
+	app.get("/*", (req, res)=> {
+       res.sendFile(path.resolve()__dirname, "client", "build", "index.html");
+	})
+}
 
 
 app.listen(PORT, () => {
