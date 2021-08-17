@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "planning-tool backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleksandrRiabov/mern-planning-tool.git"
+  },
+  "keywords": [
+    "mern"
+  ],
+  "author": "Aleksandr Riabov webdevapplications@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleksandrRiabov/mern-planning-tool/issues"
+  },
+  "homepage": "https://github.com/AleksandrRiabov/mern-planning-tool#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
