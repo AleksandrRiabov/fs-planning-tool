@@ -19,7 +19,7 @@ export const getTotal = (data) => {
   };
 
   export const getAllTotalsAndAverages = (data) => {
-        const allProducts = data.length;
+        const allProducts = data.filter(product => product.cases > 0).length;
         const totals = data.reduce((total, product) => {
              return {
               cases: total.cases + +product.cases,

@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-import { Link } from "react-router-dom";
 import image from "./unseccessful.png";
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -53,11 +52,11 @@ const Error = ({ message }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Link to="/">
+        <a href="/">
 			  <Button  className={classes.btn} size="small" color="primary">
 				  Go to home page
 			</Button>
-		  </Link>
+		  </a>
       </CardActions>
     </Card>
 	</Container>	   
