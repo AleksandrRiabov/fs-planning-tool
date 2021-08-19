@@ -6,6 +6,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
+import Tooltip from '@material-ui/core/Tooltip';
 
 import { useStyles } from "./dayTableStyles";
 import "./DayTable.css";
@@ -19,6 +20,11 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
   const totalActualTrailers = getTrailersFromPallets(totalPallets);
   const totalPredictedTrailers = getTrailersFromPallets(totalPredictedPallets);
 	  
+  const tooltips = {
+    averageCases: "Last 5 Weeks Average",
+    averagePallets: "Expected pallet count according to the  average coeficient of the last 5 weeks.",
+    averageTrailers: "Expected number of required trailers"
+  }
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -28,15 +34,21 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
             <TableCell align="center">Cases</TableCell>
             <TableCell align="center">Pallets</TableCell>
             <TableCell align="center">Trailers</TableCell>
-            <TableCell align="center" className={classes.predicted}>
-              Expected Cases
-            </TableCell>
+            <Tooltip title={tooltips.averageCases} aria-label={tooltips.averageCases}>
+              <TableCell align="center" className={classes.predicted}>
+                Expected Cases
+              </TableCell>
+            </Tooltip>
+            <Tooltip title={tooltips.averagePallets} aria-label={tooltips.averagePallets}>
             <TableCell align="center" className={classes.predicted}>
               Expected Pallets
             </TableCell>
+            </Tooltip>
+            <Tooltip title={tooltips.averageTrailers} aria-label={tooltips.averageTrailers}>
             <TableCell align="center" className={classes.predicted}>
               Expected Trailers
             </TableCell>
+            </Tooltip>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -122,10 +134,10 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
                 </Box>
               </Box>
             </TableCell>
-            {/* EXPECTED SUMMRY*/}
-            <TableCell align="center" className={classes.predicted}>
-              Total Expected cases: { totalPredictedCases }
-            </TableCell>
+            {/* EXPECTED SUMMRY*/} 
+              <TableCell align="center" className={classes.predicted}>  
+                        Total Expected cases: { totalPredictedCases }
+              </TableCell>
             <TableCell align="center" className={classes.predicted}>
               Total Expected Pallests: { totalPredictedPallets }
             </TableCell>

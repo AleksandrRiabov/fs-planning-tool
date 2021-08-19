@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const getTrailersFromPallets = (palletsQty = 0) => {
    const trailers = Math.floor(palletsQty / 26);
    const pallets = palletsQty % 26;
@@ -53,6 +55,9 @@ export const getTotal = (data) => {
     return chartData;
  }
 
+ export const getFirstDayOfWeek = (year, number) => {
+      return moment(`${number} ${year}`, "WW YYYY").startOf('week').add(1, "day").format("DD MM YYYY");
+ }
   
  // Capitalize 
  export function capitalize(str, lower = false){

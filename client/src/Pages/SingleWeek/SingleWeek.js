@@ -1,4 +1,5 @@
-import { useState} from "react";
+import { useState, useEffect} from "react";
+import {useParams, useHistory, useLocation} from "react-router";
 import { useStyles } from "./useStyles";
 
 import Table from "@material-ui/core/Table";
@@ -24,39 +25,44 @@ import moment from "moment";
 import useFetch from "../../hooks/useFetch";
 import { Typography } from "@material-ui/core";
 
+import {getFirstDayOfWeek} from "../../helpers";
 
 
-export default function MainTable() {
-   const [weekDate, setWeekDate] = useState(moment());
+export default function SingleWeek() {
+   const {year, number} = useParams();
+   const firstDayOfWeek = moment(`${number} ${year}`, "WW YYYY");
+   const initialState = {number, year, firstDayOfWeek}
+   const history = useHistory();
+   const {pathname}  = useLocation();
+
+   
+   // const [weekDate, setWeekDate] = useState(moment());
+   const [week, setWeek] = useState(initialState);
    const [creatingInProgress, setCreatingInProgress] = useState(false);
-   const [indicator, setIndicator] = useState(0); //Indicate previos week when need to redirect on cancel
-   const year = weekDate
-      .clone()
-      .subtract(1, "week")
-      .clone()
-      .add(1, "day") 
-      .startOf("week")
-      .format("YYYY"); //getting correct year of the week number
+   const [indicator, setIndicator] = useState(0); //Indicate previous week when need to redirect on cancel
+ 
+   console.log(week.number)
 
-   const  url = `/api/week/${year}/${weekDate.format("WW")}`;
-   const { loading, error, data, weekExist } = useFetch(url, weekDate);
+   const  url = `/api/${pathname}`;
+   const { loading, error, data, weekExist } = useFetch(url, week, pathname);
    
    const classes = useStyles();
 
    const createNewWeek = async() => {
       setCreatingInProgress(true);
-      const weekStartingDate = weekDate.startOf('week').add(1, "day").format("DD MM YYYY");
+      const weekStartingDate = getFirstDayOfWeek(week.year, week.number);
       await fetch(`/api/add/week/${weekStartingDate}`);
       setCreatingInProgress(false)
-      setWeekDate(moment(weekDate.format("DD MM YYYY"), "DD MM YYYY")); 
+      // setWeekDate(moment(weekDate.format("DD MM YYYY"), "DD MM YYYY")); 
    }
 
    const cancel = () => {
-      if (indicator < 0){
-         setWeekDate(weekDate.clone().add(1, "week"));
-      } else{
-         setWeekDate(weekDate.clone().subtract(1, "week"));
-      }
+      history.goBack();
+      // if (indicator < 0){
+      //    setWeekDate(weekDate.clone().add(1, "week"));
+      // } else{
+      //    setWeekDate(weekDate.clone().subtract(1, "week"));
+      // }
    }
     
    if (loading) {
@@ -70,12 +76,13 @@ export default function MainTable() {
       return (
       <Modal>
          {creatingInProgress ? "Please wait..": <AddNewWeek 
-         weekNumber={weekDate.format("WW")}
+         weekNumber={week.number}
          createNewWeek={createNewWeek}
          cancel={cancel}
          />}
       </Modal>)
    }
+   console.log("render")
    return (
       <Paper className={classes.paper}>
          <Grid container spacing={3}>
@@ -87,8 +94,8 @@ export default function MainTable() {
             </Grid>
             <Grid item xs={12} md={3}>
                <SummaryBox
-                  weekDate={weekDate}
-                  setWeekDate={setWeekDate}
+                  week={week}
+                  setWeek={setWeek}
                   setIndicator={setIndicator}
                   data={data.days}
                />

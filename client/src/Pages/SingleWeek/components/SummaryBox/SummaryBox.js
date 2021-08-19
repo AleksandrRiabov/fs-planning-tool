@@ -5,11 +5,15 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Link } from "react-router-dom";
+import moment from "moment";
+
+
 import CountUp from "react-countup";
 
 import { getAllTotalsAndAverages } from "../../../../helpers";
 
-const SummaryBox = ({ data, weekDate, setWeekDate, setIndicator }) => {
+const SummaryBox = ({ data, week, setWeek, setIndicator }) => {
    const classes = useStyles();
 
    const {
@@ -21,33 +25,53 @@ const SummaryBox = ({ data, weekDate, setWeekDate, setIndicator }) => {
       averageTrailers,
    } = getAllTotalsAndAverages(data);
 
-   const changeWeekNumber = (type) => {
-      if (type === "add") {
-         setWeekDate((prev) => prev.clone().add(1, "week"));
-         setIndicator(1);
-      }
-      if (type === "subtract") {
-         setWeekDate((prev) => prev.clone().subtract(1, "week"));
-         setIndicator(-1);
-      }
+   const getYear = (date) => {
+      return date.clone()
+       .subtract(1, "week")
+       .clone()
+       .add(1, "day") 
+       .startOf("week")
+       .format("YYYY");
+     } 
+  
+   const getWeekNumber = (type) => {
+      const date = type === "next" 
+         ? moment(`${week.number} ${week.year}`, "WW YYYY").clone().add(1, "week")
+         : moment(`${week.number} ${week.year}`, "WW YYYY").clone().subtract(1, "week")
+         const year = getYear(date);
+         const number = date.format("WW"); 
+         return {year, number}
    };
 
+
+   const nextDate = getWeekNumber("next");
+   const prevDate = getWeekNumber("previous");
+
+   const arrowRightUrl = `/week/${nextDate.year}/${nextDate.number}` ;
+   const arrowLeftUrl = `/week/${prevDate.year}/${prevDate.number}` 
+
+   //getting correct year of the week number
+    
    return (
       <Paper className={classes.root}>
          <Grid container spacing={1}>
             <Grid item xs={12}>
                <Box className={classes.titleBox}>
+                  <Link to={{pathname: arrowLeftUrl}} onClick={() => setWeek({year: prevDate.year, number: prevDate.number})}>
                   <ArrowBackIcon
-                     onClick={() => changeWeekNumber("subtract")}
+                     onClick={() => getWeekNumber("subtract")}
                      className={classes.arrows}
                   />
+                  </Link>
                   <Typography variant="h6" color="inherit">
-                     Week {weekDate.format("WW")}{" "}
+                     Week {week.number}{" "}
                   </Typography>
+                  <Link to={{pathname: arrowRightUrl}} onClick={() => setWeek({year: nextDate.year, number: nextDate.number})}>
                   <ArrowForwardIcon
-                     onClick={() => changeWeekNumber("add")}
+                     onClick={() => getWeekNumber("add")}
                      className={classes.arrows}
                   />
+                  </Link>
                </Box>
             </Grid>
             <Grid item xs={12} sm={6} md={12}>

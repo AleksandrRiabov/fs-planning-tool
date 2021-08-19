@@ -14,6 +14,7 @@ import Footer from "./components/Footer/Footer";
 import Navbar from './components/Navbar/Navbar';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
+import moment from "moment";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -25,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const currentWeek = moment().format("WW");
 
   return (
 	  <Router>
-	 
     <div className="app">
       <Navbar />
         <Container className="main">
@@ -36,7 +37,9 @@ function App() {
           <Grid className={classes.container} container spacing={3}>
 			     <Grid item xs={12}>
            <Switch>
-                <Route path="/" exact><SingleWeek /></Route>
+                <Route path="/week/:year/:number" render={({match}) => {
+                  return <SingleWeek year={match.params.year} number={match.params.number}/>
+                }} />
                 <Route path="/day/:date"  render={({match}) => {
                   return <SingleDay date={match.params.date}/>
                 }}/>
