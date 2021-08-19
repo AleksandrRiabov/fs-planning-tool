@@ -41,7 +41,7 @@ export default function OptionsBar({showBarChart, setShowBarChart, saveChanges, 
             icon={<ShowChartIcon/>}/>
 
          <OptionBtn
-          text="Creat Plan"
+          text="Create Plan"
           icon={<DeveloperModeIcon/>}/>
       </Box>
       
