@@ -8,10 +8,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import { SingleDay } from './Pages/SingleDay/SingleDay';
+import SingleDay from './Pages/SingleDay/SingleDay';
 import SingleWeek from "./Pages/SingleWeek/SingleWeek";
 import Footer from "./components/Footer/Footer";
 import Navbar from './components/Navbar/Navbar';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/day/:date"  render={({match}) => {
                   return <SingleDay date={match.params.date}/>
                 }}/>
+                <Route component={PageNotFound}/>
 		      </Switch>	
              </Grid>	 
         </Grid>

@@ -19,7 +19,8 @@ import DaysLineChart from "./components/DaysLineChart/DaysLineChart";
 import { formatChartData } from "../../helpers";
 import { getSingleDayData } from "../../services";
 
-export const SingleDay = ({ date }) => {
+
+const SingleDay = ({ date }) => {
    const [data, setData] = useState();
    const [showBarChart, setShowBarChart] = useState(false);
    const [showLineChart, setShowLineChart] = useState(false);
@@ -167,3 +168,5 @@ export const SingleDay = ({ date }) => {
       </Paper>
    );
 };
+
+export default SingleDay;

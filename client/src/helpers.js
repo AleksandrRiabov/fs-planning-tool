@@ -33,7 +33,7 @@ export const getTotal = (data) => {
          trailers: {trailers: Math.floor(totals.trailers), pallets: totals.pallets % 26},
           averageCases: (totals.cases / allProducts).toFixed(),
           averagePallets: (totals.pallets / allProducts).toFixed(),
-          averageTrailers: (totals.trailers / allProducts).toFixed() 
+          averageTrailers: (totals.trailers / allProducts).toFixed()
         }
   }
 

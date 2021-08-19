@@ -78,7 +78,11 @@ const SummaryBox = ({ data, weekDate, setWeekDate, setIndicator }) => {
                   <Box>
                      <Typography align={"left"} variant="body1" gutterBottom>
                         Trailers:{" "}
-                        <span className="bold">{averageTrailers}</span>
+                        <span className="bold"><CountUp 
+                              start={0}
+                              end={averageTrailers}
+                              duration={0.8}
+                              separator=","/></span>
                      </Typography>
                   </Box>
                </Box>
