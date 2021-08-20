@@ -3,8 +3,8 @@ import Box from '@material-ui/core/Box';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
 import SaveIcon from '@material-ui/icons/Save';
-import OptionBtn from "../../../../components/OptionBtn/OptionBtn";
 import ShowChartIcon from '@material-ui/icons/ShowChart';
+import OptionBtn from "../../../../components/OptionBtn/OptionBtn";
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function OptionsBar({showBarChart, setShowBarChart, saveChanges, showLineChart, setShowLineChart}) {
+export default function OptionsBar({showBarChart, setShowBarChart, saveChanges, showLineChart, setShowLineChart, newChanges}) {
 
   const classes = useStyles();
   const toggleBarChart = () => {
@@ -50,7 +50,7 @@ export default function OptionsBar({showBarChart, setShowBarChart, saveChanges, 
             text="Save changes"
             func={saveChanges} 
             icon={<SaveIcon/>}
-            variant="contained"
+            variant={newChanges ? "contained": "text"}
             />
       </Box>
     </Box>

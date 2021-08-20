@@ -29,7 +29,9 @@ export const getTotal = (data) => {
 };
 
 export const getAllTotalsAndAverages = (data) => {
-  const allProducts = data.filter((product) => product.cases > 0).length;
+  const allProducts = data.filter(
+    (product) => product.cases > 0 || product.pallets > 0
+  ).length;
   const totals = data.reduce(
     (total, product) => {
       return {
@@ -58,7 +60,7 @@ export const formatChartData = (data) => {
     labels: [],
     cases: [],
   };
-  
+
   data.forEach((product) => {
     chartData.labels.push(capitalize(product.name));
     chartData.labels.push("Expected-" + product.name);

@@ -29,10 +29,9 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   
-
   return (
 	  <Router>
-    <div className="app">
+    <div className="app appBackground">
       <Navbar />
         <Container className="main">
         <div className={classes.root}>
