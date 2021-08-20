@@ -6,11 +6,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
-<<<<<<< HEAD
-import Tooltip from "@material-ui/core/Tooltip";
-=======
 import Tooltip from '@material-ui/core/Tooltip';
->>>>>>> routerchanges
 
 import { useStyles } from "./useStyles";
 import "./DayTable.css";
@@ -28,22 +24,13 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
   } = getTotal(data);
   const totalActualTrailers = getTrailersFromPallets(totalPallets);
   const totalPredictedTrailers = getTrailersFromPallets(totalPredictedPallets);
-<<<<<<< HEAD
-
-  const tooltips = {
-    averageCases: "Last 5 Weeks Average",
-    averagePallets:
-      "Expected pallet count according to the  average coeficient of the last 5 weeks.",
-    averageTrailers: "Expected number of required trailers",
-  };
-=======
 	  
   const tooltips = {
     averageCases: "Last 5 Weeks Average",
     averagePallets: "Expected pallet count according to the  average coeficient of the last 5 weeks.",
     averageTrailers: "Expected number of required trailers"
   }
->>>>>>> routerchanges
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -53,19 +40,16 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
             <TableCell align="center">Cases</TableCell>
             <TableCell align="center">Pallets</TableCell>
             <TableCell align="center">Trailers</TableCell>
-<<<<<<< HEAD
+
             <Tooltip
               title={tooltips.averageCases}
               aria-label={tooltips.averageCases}
             >
-=======
-            <Tooltip title={tooltips.averageCases} aria-label={tooltips.averageCases}>
->>>>>>> routerchanges
               <TableCell align="center" className={classes.predicted}>
                 Expected Cases
               </TableCell>
             </Tooltip>
-<<<<<<< HEAD
+
             <Tooltip
               title={tooltips.averagePallets}
               aria-label={tooltips.averagePallets}
@@ -81,17 +65,6 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
               <TableCell align="center" className={classes.predicted}>
                 Expected Trailers
               </TableCell>
-=======
-            <Tooltip title={tooltips.averagePallets} aria-label={tooltips.averagePallets}>
-            <TableCell align="center" className={classes.predicted}>
-              Expected Pallets
-            </TableCell>
-            </Tooltip>
-            <Tooltip title={tooltips.averageTrailers} aria-label={tooltips.averageTrailers}>
-            <TableCell align="center" className={classes.predicted}>
-              Expected Trailers
-            </TableCell>
->>>>>>> routerchanges
             </Tooltip>
           </TableRow>
         </TableHead>
@@ -128,18 +101,12 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
                 <TableCell align="center">
                   {pallets ? (pallets / 26).toFixed(2) : 0}
                 </TableCell>
-<<<<<<< HEAD
-                {/* SECTION EXPECTED DATA*/}
-                <TableCell align="center" className={classes.predictedInfo}>
-                  {predictedCases}
-=======
                 {/*  EXPECTED DATA*/}
                 <TableCell
                   align="center"
                   className={classes.predictedInfo}
                 >
                   { predictedCases}
->>>>>>> routerchanges
                 </TableCell>
                 <TableCell
                   align="center"
@@ -178,17 +145,11 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
                 <Box>{totalActualTrailers.pallets} pallets</Box>
               </Box>
             </TableCell>
-<<<<<<< HEAD
-            {/* EXPECTED SUMMRY*/}
-            <TableCell align="center" className={classes.predicted}>
-              Total Expected cases: {totalPredictedCases}
-            </TableCell>
-=======
             {/* EXPECTED DATA SUMMRY*/} 
               <TableCell align="center" className={classes.predicted}>  
                         Total Expected cases: { totalPredictedCases }
               </TableCell>
->>>>>>> routerchanges
+
             <TableCell align="center" className={classes.predicted}>
               Total Expected Pallests: {totalPredictedPallets}
             </TableCell>
