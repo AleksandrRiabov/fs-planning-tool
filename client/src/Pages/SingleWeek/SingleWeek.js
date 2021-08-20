@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { useParams, useHistory, useLocation } from "react-router";
 import useFetch from "../../hooks/useFetch";
+import useCreateNewWeek from "../../hooks/useCreateNewWeek";
 import { useStyles } from "./useStyles";
 
 import Table from "@material-ui/core/Table";
@@ -24,71 +24,20 @@ import Saving from "../../components/Saving/Saving";
 
 import { Link } from "react-router-dom";
 
-import { getFirstDayOfWeek } from "../../helpers";
-
-export default function SingleWeek() {
+const SingleWeek = () => {
   const { year, number } = useParams();
-  const history = useHistory();
   const { pathname } = useLocation();
 
-  const [creatingStatus, setCreatingStatus] = useState({
-    inProgress: false,
-    showBtn: false,
-    message: "",
-    error: false,
-    refreshPage: false,
-  });
+  const { creatingStatus, closeModal, cancel, createNewWeek } =
+    useCreateNewWeek({ year, number });
 
   const url = `/api/${pathname}`;
-  const { loading, error, data, weekExist } = useFetch( url, creatingStatus.refreshPage );
+  const { loading, error, data, weekExist } = useFetch(
+    url,
+    creatingStatus.refreshPage
+ );
 
   const classes = useStyles();
-
-  const createNewWeek = async () => {
-    setCreatingStatus((prev) => ({
-      ...prev,
-      inProgress: true,
-      message: "Please Wait..",
-    }));
-    const weekStartingDate = getFirstDayOfWeek(year, number);
-    try {
-      await fetch(`/api/add/week/${weekStartingDate}`);
-      setCreatingStatus((prev) => ({
-        ...prev,
-        showBtn: true,
-        message: "New Week Added Successfully!",
-      }));
-    } catch (err) {
-      setCreatingStatus((prev) => ({
-        ...prev,
-        error: true,
-        showBtn: true,
-        message: "Something Went Wrong.. Can Not Create New Week!",
-      }));
-    }
-  };
-  const cancel = () => {
-    history.goBack();
-  };
-  const closeModal = () => {
-    if (creatingStatus.error) {
-      cancel();
-      setCreatingStatus((prev) => ({
-        ...prev,
-        inProgress: false,
-        error: false,
-        showBtn: false,
-        message: "",
-      }));
-    } else {
-      setCreatingStatus((prev) => ({
-        inProgress: false,
-        showBtn: false,
-        message: "",
-        refreshPage: !prev.refreshPage,
-      }));
-    }
-  };
 
   if (loading) {
     return <Loading />;
@@ -176,4 +125,6 @@ export default function SingleWeek() {
       </Grid>
     </Paper>
   );
-}
+};
+
+export default SingleWeek;
