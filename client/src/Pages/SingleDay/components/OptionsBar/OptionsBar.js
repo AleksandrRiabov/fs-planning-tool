@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
 import SaveIcon from '@material-ui/icons/Save';
-import OptionBtn from "../OptionBtn/OptionBtn";
+import OptionBtn from "../../../../components/OptionBtn/OptionBtn";
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 
 const useStyles = makeStyles({
