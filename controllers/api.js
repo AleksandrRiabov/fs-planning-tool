@@ -70,7 +70,6 @@ exports.get_single_week_data = async (req, res) => {
 };
 
 
-
 //=========EDIT DAY INFO ===============
 
 exports.edit_day_info = async (req, res) => {
@@ -83,6 +82,7 @@ exports.edit_day_info = async (req, res) => {
       res.status(404).json({error: true, message: "Day does not exist in the DB"})
    }
 }
+
 
 //=========ADD/CREATE NEW WEEK ===========
 exports.add_new_week = async (req, res) => {
@@ -146,7 +146,6 @@ async function addNewDay(date){
    const createdDay = await SingleDay.create(newDay);
    await pushDayIdToRelevantWeek (date, createdDay._id);
 }
-
 
 
 async function pushDayIdToRelevantWeek (date, dayId){
