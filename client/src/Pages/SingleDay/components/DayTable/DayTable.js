@@ -13,10 +13,15 @@ import "./DayTable.css";
 
 import { getTrailersFromPallets, getTotal } from "../../../../helpers";
 
-  const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
+const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
   const classes = useStyles();
-	  
-  const { totalCases, totalPallets, totalPredictedCases, totalPredictedPallets } = getTotal(data);
+
+  const {
+    totalCases,
+    totalPallets,
+    totalPredictedCases,
+    totalPredictedPallets,
+  } = getTotal(data);
   const totalActualTrailers = getTrailersFromPallets(totalPallets);
   const totalPredictedTrailers = getTrailersFromPallets(totalPredictedPallets);
 	  
@@ -25,6 +30,7 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
     averagePallets: "Expected pallet count according to the  average coeficient of the last 5 weeks.",
     averageTrailers: "Expected number of required trailers"
   }
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -34,27 +40,38 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
             <TableCell align="center">Cases</TableCell>
             <TableCell align="center">Pallets</TableCell>
             <TableCell align="center">Trailers</TableCell>
-            <Tooltip title={tooltips.averageCases} aria-label={tooltips.averageCases}>
+
+            <Tooltip
+              title={tooltips.averageCases}
+              aria-label={tooltips.averageCases}
+            >
               <TableCell align="center" className={classes.predicted}>
                 Expected Cases
               </TableCell>
             </Tooltip>
-            <Tooltip title={tooltips.averagePallets} aria-label={tooltips.averagePallets}>
-            <TableCell align="center" className={classes.predicted}>
-              Expected Pallets
-            </TableCell>
+
+            <Tooltip
+              title={tooltips.averagePallets}
+              aria-label={tooltips.averagePallets}
+            >
+              <TableCell align="center" className={classes.predicted}>
+                Expected Pallets
+              </TableCell>
             </Tooltip>
-            <Tooltip title={tooltips.averageTrailers} aria-label={tooltips.averageTrailers}>
-            <TableCell align="center" className={classes.predicted}>
-              Expected Trailers
-            </TableCell>
+            <Tooltip
+              title={tooltips.averageTrailers}
+              aria-label={tooltips.averageTrailers}
+            >
+              <TableCell align="center" className={classes.predicted}>
+                Expected Trailers
+              </TableCell>
             </Tooltip>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((product, index) => {
             const { name, cases, pallets, predictedCases, predictedPallets } =
-              product;           
+              product;
             return (
               <TableRow
                 className={index % 2 === 0 ? classes.second : classes.first}
@@ -92,14 +109,18 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
                   { predictedCases}
                 </TableCell>
                 <TableCell
-                  align="center" 
-                  className={(cases && parseInt(cases) > 0  ) ? "" : classes.predictedInfo}
+                  align="center"
+                  className={
+                    cases && parseInt(cases) > 0 ? "" : classes.predictedInfo
+                  }
                 >
                   {predictedPallets}
                 </TableCell>
                 <TableCell
                   align="center"
-                  className={(cases && parseInt(cases) > 0  ) ? "" : classes.predictedInfo}
+                  className={
+                    cases && parseInt(cases) > 0 ? "" : classes.predictedInfo
+                  }
                 >
                   {(predictedPallets / 26).toFixed(2)}
                 </TableCell>
@@ -115,31 +136,22 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
             >
               TOTAL
             </TableCell>
-            <TableCell align="center">
-              Total cases: {totalCases}
-            </TableCell>
-            <TableCell align="center">
-              Total Pallests: {totalPallets}
-            </TableCell>
+            <TableCell align="center">Total cases: {totalCases}</TableCell>
+            <TableCell align="center">Total Pallests: {totalPallets}</TableCell>
             <TableCell align="center" display="flex">
               Total:
               <Box className={classes.flexWrapper}>
-                <Box>
-                  { totalActualTrailers.trailers }
-                  {" "} Trailers
-                </Box>
-                <Box>
-                  { totalActualTrailers.pallets }
-                  {" "}pallets
-                </Box>
+                <Box>{totalActualTrailers.trailers} Trailers</Box>
+                <Box>{totalActualTrailers.pallets} pallets</Box>
               </Box>
             </TableCell>
             {/* EXPECTED DATA SUMMRY*/} 
               <TableCell align="center" className={classes.predicted}>  
                         Total Expected cases: { totalPredictedCases }
               </TableCell>
+
             <TableCell align="center" className={classes.predicted}>
-              Total Expected Pallests: { totalPredictedPallets }
+              Total Expected Pallests: {totalPredictedPallets}
             </TableCell>
             <TableCell
               align="center"
@@ -148,14 +160,8 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
             >
               Total Expected:
               <Box className={classes.flexWrapper}>
-                <Box>
-                  {totalPredictedTrailers.trailers}
-                  {" "} Trailers
-                </Box>
-                <Box>
-                  {totalPredictedTrailers.pallets}
-                  {" "} pallets
-                </Box>
+                <Box>{totalPredictedTrailers.trailers} Trailers</Box>
+                <Box>{totalPredictedTrailers.pallets} pallets</Box>
               </Box>
             </TableCell>
           </TableRow>
