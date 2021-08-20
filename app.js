@@ -15,8 +15,6 @@ const apiRoutes = require("./routes/api.js");
 
 app.use(cors());
 
-// console.log(moment(new Date(2011, 0, 1)).format("YYYY MM DD"));
-
 app.use(express.json({extended: true})); 
 
 mongoose.connect("mongodb+srv://"+ mongoLogin +":" + dbPassword+ "@calendar.uwuzq.mongodb.net/<CalendarApp>?retryWrites=true&w=majority", {

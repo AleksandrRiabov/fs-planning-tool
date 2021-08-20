@@ -4,15 +4,18 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+
+import HomePage from './Pages/HomePage/HomePage';
 import SingleDay from './Pages/SingleDay/SingleDay';
 import SingleWeek from "./Pages/SingleWeek/SingleWeek";
 import Footer from "./components/Footer/Footer";
 import Navbar from './components/Navbar/Navbar';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,18 +28,20 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-
+  
   return (
 	  <Router>
-	 
-    <div className="app">
+    <div className="app appBackground">
       <Navbar />
         <Container className="main">
         <div className={classes.root}>
           <Grid className={classes.container} container spacing={3}>
 			     <Grid item xs={12}>
            <Switch>
-                <Route path="/" exact><SingleWeek /></Route>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/week/:year/:number" render={({match}) => {
+                  return <SingleWeek year={match.params.year} number={match.params.number}/>
+                }} />
                 <Route path="/day/:date"  render={({match}) => {
                   return <SingleDay date={match.params.date}/>
                 }}/>

@@ -6,9 +6,9 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from '@material-ui/core/Tooltip';
 
-import { useStyles } from "./dayTableStyles";
+import { useStyles } from "./useStyles";
 import "./DayTable.css";
 
 import { getTrailersFromPallets, getTotal } from "../../../../helpers";
@@ -24,13 +24,13 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
   } = getTotal(data);
   const totalActualTrailers = getTrailersFromPallets(totalPallets);
   const totalPredictedTrailers = getTrailersFromPallets(totalPredictedPallets);
-
+	  
   const tooltips = {
     averageCases: "Last 5 Weeks Average",
-    averagePallets:
-      "Expected pallet count according to the  average coeficient of the last 5 weeks.",
-    averageTrailers: "Expected number of required trailers",
-  };
+    averagePallets: "Expected pallet count according to the  average coeficient of the last 5 weeks.",
+    averageTrailers: "Expected number of required trailers"
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -40,6 +40,7 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
             <TableCell align="center">Cases</TableCell>
             <TableCell align="center">Pallets</TableCell>
             <TableCell align="center">Trailers</TableCell>
+
             <Tooltip
               title={tooltips.averageCases}
               aria-label={tooltips.averageCases}
@@ -48,6 +49,7 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
                 Expected Cases
               </TableCell>
             </Tooltip>
+
             <Tooltip
               title={tooltips.averagePallets}
               aria-label={tooltips.averagePallets}
@@ -99,9 +101,12 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
                 <TableCell align="center">
                   {pallets ? (pallets / 26).toFixed(2) : 0}
                 </TableCell>
-                {/* SECTION EXPECTED DATA*/}
-                <TableCell align="center" className={classes.predictedInfo}>
-                  {predictedCases}
+                {/*  EXPECTED DATA*/}
+                <TableCell
+                  align="center"
+                  className={classes.predictedInfo}
+                >
+                  { predictedCases}
                 </TableCell>
                 <TableCell
                   align="center"
@@ -122,7 +127,7 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
               </TableRow>
             );
           })}
-          {/*SUMMRY ACTUAL DATA*/}
+          {/*  ACTUAL DATA SUMMRY*/}
           <TableRow key="total">
             <TableCell
               className={classes.product}
@@ -140,10 +145,11 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
                 <Box>{totalActualTrailers.pallets} pallets</Box>
               </Box>
             </TableCell>
-            {/* EXPECTED SUMMRY*/}
-            <TableCell align="center" className={classes.predicted}>
-              Total Expected cases: {totalPredictedCases}
-            </TableCell>
+            {/* EXPECTED DATA SUMMRY*/} 
+              <TableCell align="center" className={classes.predicted}>  
+                        Total Expected cases: { totalPredictedCases }
+              </TableCell>
+
             <TableCell align="center" className={classes.predicted}>
               Total Expected Pallests: {totalPredictedPallets}
             </TableCell>

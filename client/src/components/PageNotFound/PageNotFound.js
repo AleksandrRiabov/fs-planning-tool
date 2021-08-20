@@ -23,7 +23,7 @@ const PageNotFound = () => {
    const classes = useStyles();
    return (
       <div>
-         <Grid  constainer spacing={5}> 
+         <Grid  container spacing={5}> 
              <Grid className={classes.root} item xs={12} md={8}>
                 <Paper className={classes.wrapper}>
                    <Typography variant="h1">404 </Typography>
