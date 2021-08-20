@@ -11,7 +11,7 @@ import BarChart from "./components/BarChart/BarChart";
 import OptionsBar from "./components/OptionsBar/OptionsBar";
 import Loading from "../../components/Loading/Loading";
 import Error from "../../components/Error/Error";
-import Saving from "./components/Saving/Saving";
+import Saving from "../../components/Saving/Saving";
 import Modal from "../../components/Modal/Modal";
 import DaysLineChart from "./components/DaysLineChart/DaysLineChart";
 
@@ -26,7 +26,7 @@ const SingleDay = ({ date }) => {
    const [showLineChart, setShowLineChart] = useState(false);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState({ isError: false, message: "" });
-   const [saving, setSaving] = useState({ inProgress: false, showBtn: false, errorMessage: "" });
+   const [saving, setSaving] = useState({ inProgress: false, showBtn: false, message: "" });
 
    const classes = useStyles();
 
@@ -57,7 +57,7 @@ const SingleDay = ({ date }) => {
    }, [date]);
 
    const saveChanges = async () => {
-      setSaving({ ...saving, inProgress: true });
+      setSaving({ ...saving, inProgress: true, message: "Saving.. Plesase Wait.."});
       try {
         const res = await fetch(`/api/day/${data._id}`, {
             method: "PUT",
@@ -67,9 +67,9 @@ const SingleDay = ({ date }) => {
          if (res.status !== 200){
            throw new Error({message: "Not saved"})
          }
-         setSaving({ ...saving, inProgress: true, showBtn: true});
+         setSaving({ ...saving, inProgress: true, message: "Day Details Has Been Updated..",showBtn: true});
       } catch (e) {
-        setSaving({ inProgress: true, showBtn: true, errorMessage: "Could Not Save Data! Please try again.." });
+        setSaving({ inProgress: true, showBtn: true, message: "Could Not Save Data! Please try again.." });
       } 
    };
 
@@ -119,7 +119,7 @@ const SingleDay = ({ date }) => {
       <Paper className={classes.paper}>
          {saving.inProgress ? (
             <Modal>
-               <Saving showBtn={saving.showBtn} closeModal={closeModal} errorMessage={saving.errorMessage}/>
+               <Saving showBtn={saving.showBtn} closeModal={closeModal} message={saving.message}/>
             </Modal>
          ) : null}
          <div className="singleDay">

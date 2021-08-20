@@ -55,6 +55,16 @@ export const getTotal = (data) => {
     return chartData;
  }
 
+    //getting correct year of the week number, otherwise may have bug with last week of the year
+    export const getCorrectYear = (date) => {
+      return date.clone()
+       .subtract(1, "week")
+       .clone()
+       .add(1, "day") 
+       .startOf("week")
+       .format("YYYY");
+     } 
+
  export const getFirstDayOfWeek = (year, number) => {
       return moment(`${number} ${year}`, "WW YYYY").startOf('week').add(1, "day").format("DD MM YYYY");
  }

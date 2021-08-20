@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (urlParams, weekDate) => {
+const useFetch = (urlParams, listener) => {
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState({ show: false, message: "" });
    const [data, setData] = useState(null);
@@ -31,7 +31,7 @@ const useFetch = (urlParams, weekDate) => {
 
    useEffect(() => {
       fetchData(urlParams);
-   }, [weekDate, urlParams]);
+   }, [ urlParams, listener]);
 
    return { loading, error, data, weekExist};
 };

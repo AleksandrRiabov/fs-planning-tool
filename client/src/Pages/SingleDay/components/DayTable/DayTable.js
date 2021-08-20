@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Tooltip from '@material-ui/core/Tooltip';
 
-import { useStyles } from "./dayTableStyles";
+import { useStyles } from "./useStyles";
 import "./DayTable.css";
 
 import { getTrailersFromPallets, getTotal } from "../../../../helpers";
@@ -84,7 +84,7 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
                 <TableCell align="center">
                   {pallets ? (pallets / 26).toFixed(2) : 0}
                 </TableCell>
-                {/* SECTION EXPECTED DATA*/}
+                {/*  EXPECTED DATA*/}
                 <TableCell
                   align="center"
                   className={classes.predictedInfo}
@@ -106,7 +106,7 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
               </TableRow>
             );
           })}
-          {/*SUMMRY ACTUAL DATA*/}
+          {/*  ACTUAL DATA SUMMRY*/}
           <TableRow key="total">
             <TableCell
               className={classes.product}
@@ -134,7 +134,7 @@ import { getTrailersFromPallets, getTotal } from "../../../../helpers";
                 </Box>
               </Box>
             </TableCell>
-            {/* EXPECTED SUMMRY*/} 
+            {/* EXPECTED DATA SUMMRY*/} 
               <TableCell align="center" className={classes.predicted}>  
                         Total Expected cases: { totalPredictedCases }
               </TableCell>

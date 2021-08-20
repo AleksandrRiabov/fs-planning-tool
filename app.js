@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use(express.json({extended: true})); 
 
-mongoose.connect("mongodb+srv://"+ mongoLogin +":" + dbPassword+ "@calendar.uwuzq.mongodb.net/<CalendarApp>?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://"+ mongoLogin +":" + dbPassword+ "@calendar.uwuzq.mongodb.net/<Testing>?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true,
