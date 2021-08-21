@@ -10,7 +10,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 import { useStyles } from "./useStyles";
 import "./DayTable.css";
-
+import {tooltips} from "./tooltips";
 import { getTrailersFromPallets, getTotal } from "../../../../helpers";
 
 const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
@@ -24,12 +24,6 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
   } = getTotal(data);
   const totalActualTrailers = getTrailersFromPallets(totalPallets);
   const totalPredictedTrailers = getTrailersFromPallets(totalPredictedPallets);
-	  
-  const tooltips = {
-    averageCases: "Last 5 Weeks Average",
-    averagePallets: "Expected pallet count according to the  average coeficient of the last 5 weeks.",
-    averageTrailers: "Expected number of required trailers"
-  }
 
   return (
     <TableContainer component={Paper}>
@@ -40,7 +34,6 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
             <TableCell align="center">Cases</TableCell>
             <TableCell align="center">Pallets</TableCell>
             <TableCell align="center">Trailers</TableCell>
-
             <Tooltip
               title={tooltips.averageCases}
               aria-label={tooltips.averageCases}
@@ -49,7 +42,6 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
                 Expected Cases
               </TableCell>
             </Tooltip>
-
             <Tooltip
               title={tooltips.averagePallets}
               aria-label={tooltips.averagePallets}
@@ -149,7 +141,6 @@ const DayTable = ({ data, onCasesInputChange, onPalletsInputChange }) => {
               <TableCell align="center" className={classes.predicted}>  
                         Total Expected cases: { totalPredictedCases }
               </TableCell>
-
             <TableCell align="center" className={classes.predicted}>
               Total Expected Pallests: {totalPredictedPallets}
             </TableCell>

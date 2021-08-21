@@ -31,7 +31,8 @@ function App() {
   
   return (
 	  <Router>
-    <div className="app appBackground">
+    <div className="app">
+      
       <Navbar />
         <Container className="main">
         <div className={classes.root}>

@@ -2,7 +2,23 @@ a{
 	text-decoration: none;
 	color: inherit;
 }
+.app{
+  position: relative;
+}
 
+.appBackground{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("./Pages/HomePage/images/homeBackgroundWorker.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -1000;
+}
 .app .main{
   margin: 30px auto 50px;
 }
@@ -11,3 +27,6 @@ a{
   font-weight: 600;
   font-size: 1rem;
 }
+
+
+/* linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */

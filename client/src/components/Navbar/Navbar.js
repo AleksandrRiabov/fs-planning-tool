@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -34,9 +35,9 @@ const Navbar = () =>  {
             <MenuIcon />
           </IconButton>     
 			  <Typography variant="h6" className={classes.title}>
-				  <a href="/">
+				  <Link to="/">
 				Export Planning Tool
-				 </a>
+				 </Link>
 			  </Typography>
         </Toolbar>
       </AppBar>

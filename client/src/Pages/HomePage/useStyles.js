@@ -2,20 +2,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
    root: {
-      display: "flex", 
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100%",
+      marginTop: "50px",
+      padding: "40px 40px 20px",
+   },
+   title: {
+      marginBottom: "35px",
+   },
+   about: {
+      marginBottom: "40px", 
    },
    wrapper: {
-      width: "60%",
-      maxWidth: "600px",
-      minWidth: "300px",
-      height: "300px",
-      padding: "30px",
       display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
    }
  }));
 

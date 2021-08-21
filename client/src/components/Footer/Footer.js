@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles({
    root: {
       marginTop: "100px",
-      background: "#00808017",
+      background: "#e8f4f4",
       height: " 90px",
       position: "relative",
    },
