@@ -1,7 +1,8 @@
 <h2>Technologies</h2>
 This is a full stack application on:  <strong>React, NodeJs, Express, MongoDB</strong>
+<br>
+The App is hosted on Heroku, please allow some time to load application for the first time. As if there was no traffic for 30 min Heroku will put the App in to a sleep mode
 <a href="https://guarded-savannah-03210.herokuapp.com"/>See Demo</a>
-
 <h2>What is this App for..</h2>
 Some of the warehouses hiring other logistic companies to distribute the stock.
 To speed up deliveries it is beneficial to request trailers as soon as the warehouse received the order. However,
