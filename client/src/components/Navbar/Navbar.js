@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 
  
 
@@ -14,14 +14,15 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
   title: {
     flexGrow: 1,
   },
 	navbar: {
 	background: "teal",
-}
+}, 
+
 }));
 
 const Navbar = () =>  {
@@ -32,8 +33,8 @@ const Navbar = () =>  {
       <AppBar position="static" className={classes.navbar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>     
+            <LocalShippingIcon />
+          </IconButton>   
 			  <Typography variant="h6" className={classes.title}>
 				  <Link to="/">
 				Export Planning Tool

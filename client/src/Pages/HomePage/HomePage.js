@@ -24,15 +24,13 @@ const HomePage = () => {
    return (
       <>
       <div className="appBackground"></div>
-      <Grid container className={classes.root}>
+      <Grid container spacing={3}>
       <Grid item xs={12} md={7}>
         <Paper className={classes.root}>
-           <Typography variant="h4" className={classes.title}>Export Planning Tool</Typography>
+           <Typography variant="h4" className={classes.title}>All you need to estimate, <br></br>the amount of trailers</Typography>
            <Typography variant="body2" className={classes.about} color="textSecondary">
-            We and our partners store and/or access information 
-            on a device, such as cookies and process personal 
-            data, such as unique identifiers and standard
-               information sent by a device for personalised ads and content
+            Export Planning Tool is designed to simplify process of estimating the required number of trailers for a specific day of the week.
+            All estimates are based on the average of the five previous weeks, or specific days of the week.
            </Typography>
            <Box className={classes.wrapper}>
                <Link to={`/week/${currentYear}/${currentWeekNumber}`}>
