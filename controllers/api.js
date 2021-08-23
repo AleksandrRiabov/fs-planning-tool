@@ -6,7 +6,6 @@ const moment = require("moment");
 const existingProducts = require("../products.js");
 
 const { getPrevDatesCoeficients, getCorrectYear }= require("../helpers.js");
-const singleDay = require("../models/singleDay.js");
 
 //============SINGLE DAY DATA==================
 exports.get_single_day_data = async (req, res) => {
@@ -114,7 +113,7 @@ exports.add_new_week = async (req, res) => {
 exports.get_day_linechart_data = async(req, res) => {
    const {date, query, weeks} = req.params;
    const prevDates = getPrevDates(date, weeks);
-   const foundDays = await singleDay.find({date: prevDates});
+   const foundDays = await SingleDay.find({date: prevDates});
    const response = formatData(foundDays, query)
 
    const sortedByDate = response.sort((prev, next) => {

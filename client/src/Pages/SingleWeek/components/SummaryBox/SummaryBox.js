@@ -42,15 +42,17 @@ const SummaryBox = ({ data, number, year }) => {
 
   return (
     <Paper className={classes.root}>
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box className={classes.titleBox}>
+            <Box>
             <Link to={{ pathname: arrowLeftUrl }}>
               <ArrowBackIcon
                 onClick={() => getWeekNumber("subtract")}
                 className={classes.arrows}
               />
             </Link>
+            </Box>
             <Typography variant="h6" color="inherit">
               Week {number}{" "}
             </Typography>

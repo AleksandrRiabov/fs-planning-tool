@@ -7,7 +7,6 @@ export const useFetchAndModifyData = (date) => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     setLoading(true);
     const fetchAndModifyData = async (date) => {
       try {

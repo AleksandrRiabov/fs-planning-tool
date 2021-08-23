@@ -2,8 +2,8 @@ const  mongoose = require("mongoose");
 
 
 const singleDaySchema = new mongoose.Schema({ 
-  date: String, 
-  day: String,
+  date: { type: String, unique: true, required: true }, 
+  day: { type: String, required: true }, 
   products: [ 
     {
       name: String,

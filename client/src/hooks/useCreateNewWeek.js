@@ -20,9 +20,16 @@ const useCreateNewWeek = ({ year, number }) => {
       inProgress: true,
       message: "Please Wait..",
     }));
+
     const weekStartingDate = getFirstDayOfWeek(year, number);
+    
     try {
-      await fetch(`/api/add/week/${weekStartingDate}`);
+      await fetch(`/api/add/week/${weekStartingDate}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+      });
       setCreatingStatus((prev) => ({
         ...prev,
         showBtn: true,

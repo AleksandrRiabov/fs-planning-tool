@@ -21,6 +21,8 @@ import { onInputChange } from "./onInputChange";
 import { onSaveChages } from "./onSaveChanges";
 
 const SingleDay = ({ date }) => {
+  window.scrollTo(0, 0);
+  
   const { data, setData, loading, error } = useFetchAndModifyData(date);
   const [showBarChart, setShowBarChart] = useState(false);
   const [showLineChart, setShowLineChart] = useState(false);

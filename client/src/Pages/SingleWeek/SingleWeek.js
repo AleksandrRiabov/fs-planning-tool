@@ -1,4 +1,4 @@
-import { useParams, useHistory, useLocation } from "react-router";
+import { useParams, useLocation } from "react-router";
 import useFetch from "../../hooks/useFetch";
 import useCreateNewWeek from "../../hooks/useCreateNewWeek";
 import { useStyles } from "./useStyles";

@@ -20,7 +20,7 @@ router.get("/week/:year/:number", get_single_week_data);
 router.put("/day/:id", edit_day_info);
 
 //=========ADD NEW WEEK ===============
-router.get("/add/week/:startdate", add_new_week)
+router.post("/add/week/:startdate", add_new_week)
 
 //=========SINGLE DAY LINE CHART DATA ===============
 router.get("/day/linechart/:date/:query/:weeks", get_day_linechart_data)

@@ -13,6 +13,7 @@ export const useStyles = makeStyles({
       height: "100%",
    },
     arrows: {
+       display: "block",
        cursor: "pointer",
        padding: "10px",
        background: "#e7fff4",
