@@ -18,7 +18,7 @@ and be prepared for the growing demand.<a href="https://guarded-savannah-03210.h
 
 ##<h2>How to run the app</h2>
 1. Either fork or download the app and open the folder in the cli.
-2. Install all deppendencies using the "npm i" command.
+2. Install all dependencies using the "npm i" command.
 3. Create an account in MongoDB Atlas.
 4. Add ".env" file width two variables:  "Mongo_Atlas_Password" = your password, and "Mongo_login" = your login.
 5. Start back end using the "npm start" command.
@@ -29,18 +29,18 @@ and be prepared for the growing demand.<a href="https://guarded-savannah-03210.h
 
 ##<h2>User Stories</h2>
 - User can <strong>INPUT</strong> number of cases has been ordered on particular day for each product category.
-- User can <strong>RETRIVE </strong> number of cases has been ordered on particular day for each product category.
+- User can <strong>RETRIEVE </strong> number of cases has been ordered on particular day for each product category.
 - User can <strong>see total number of cases/pallets/trailers for all product categories of the day or week. </strong>
 - User can <strong> AMEND </strong> number of cases has been ordered on particular day for each product category.
 - User can <strong> see EXPECTED VALUE / NUMBER OF TRAILERS </strong> on particular day for each product category, based on average of 5 previous weeks.
 - User can <strong> see expected number of pallets / trailers based on actual number of cases </strong> once known from received order.
-- User can <strong> compare EXPECTED vs ACTUAL values</strong> of each product category for any week day <strong> on Barchart</strong> 
-- User can <strong> See cases / pallets / trailers of the last 5 weeks of the same weekday on Linechart</strong>
-- User can <strong> See total cases/pallets/trailers for each day of selected week on Linechart</strong>
+- User can <strong> compare EXPECTED vs ACTUAL values</strong> of each product category for any week day <strong> on Bar-chart</strong> 
+- User can <strong> See cases / pallets / trailers of the last 5 weeks of the same weekday on Line-chart</strong>
+- User can <strong> See total cases/pallets/trailers for each day of selected week on Line-chart</strong>
 
 ##<h2>Features</h2>
-  - When "Save" pressed, data get send to backend and then get saved to database. 
-  - Every time user select day or week data App will fetch data from backend.
+  - When "Save" pressed, data get send to back-end and then get saved to database. 
+  - Every time user select day or week data App will fetch data from back-end.
 
 
   
