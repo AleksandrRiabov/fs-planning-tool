@@ -38,9 +38,6 @@ and be prepared for the growing demand.<a href="https://guarded-savannah-03210.h
 - User can <strong> See cases / pallets / trailers of the last 5 weeks of the same weekday on Line-chart</strong>
 - User can <strong> See total cases/pallets/trailers for each day of selected week on Line-chart</strong>
 
-##<h2>Features</h2>
-  - When "Save" pressed, data get send to back-end and then get saved to database. 
-  - Every time user select day or week data App will fetch data from back-end.
 
 
   
