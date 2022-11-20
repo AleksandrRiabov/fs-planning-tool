@@ -7,16 +7,10 @@ The App is hosted on Heroku, please allow some time to load application for the 
 <a href="https://guarded-savannah-03210.herokuapp.com"/>See Demo</a>
 
 <h2>What is this App for..</h2>
-Some of the warehouses hiring other logistic companies to distribute the stock.
-To speed up deliveries it is beneficial to request trailers as soon as the warehouse received the order. However,
-it is very difficult to predict the number of trailers before the warehouse order has been fully picked and the number of pallets available. 
-There is always a risk to request too many or not enough trailers to distribute in full.
-Export Planning Tool is a MERN stack Application designed to simplify the process of estimating the required number of trailers at the time warehouse just received the order.
-All estimates are based on the average of the five previous weeks, or specific days of the week. With app's charts, you can easily identify seasonal orders spikes, 
-and be prepared for the growing demand.<a href="https://guarded-savannah-03210.herokuapp.com"/>See Demo</a> 
+Some of the warehouses hire other logistic companies to distribute the stock. To speed up deliveries it is beneficial to request trailers as soon as the warehouse received the order. However, it is very difficult to predict the number of trailers before the warehouse order has been fully picked and the number of pallets available. There is always a risk to request too many or not enough trailers to distribute in full. Export Planning Tool is a MERN stack Application designed to simplify the process of estimating the required number of trailers at the time warehouse just received the order. All estimates are based on the average of the five previous weeks, or specific days of the week. With the app's charts, you can easily identify seasonal orders spikes, and be prepared for the growing demand.  <a href="https://guarded-savannah-03210.herokuapp.com"/>See Demo</a> 
 
 
-##<h2>How to run the app</h2>
+## How to run the app
 1. Either fork or download the app and open the folder in the cli.
 2. Install all dependencies using the "npm i" command.
 3. Create an account in MongoDB Atlas.
@@ -27,7 +21,7 @@ and be prepared for the growing demand.<a href="https://guarded-savannah-03210.h
 8. Start App using "npm start" command.
 9. Your local server will be running on port 3001 and front end on 3000.
 
-##<h2>User Stories</h2>
+## User Stories
 - User can <strong>INPUT</strong> number of cases has been ordered on particular day for each product category.
 - User can <strong>RETRIEVE </strong> number of cases has been ordered on particular day for each product category.
 - User can <strong>see total number of cases/pallets/trailers for all product categories of the day or week. </strong>
