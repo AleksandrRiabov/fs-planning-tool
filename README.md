@@ -1,7 +1,14 @@
-<h2>EXPORT PLANNING TOOL</h2>
-This is a full stack application on:  <strong>React, NodeJs, Express, MongoDB</strong>.
+[![React Badge](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)](#)
+[![Nodejs Badge](https://img.shields.io/badge/-Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A)](#)
+[![Mui Badge](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)](#)
+[![Mongo DB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](#)
+[![Chart Js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](#)
+[![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](#)
+
+
+
 <br/>
-Also used <strong> Material Ui, Moment.js, chart.js, react-countup</strong> libraries.
+Also used <strong> Moment.js, react-countup</strong> libraries.
 <br>
 The App is hosted on Heroku, please allow some time to load application for the first time. 
 <a href="https://guarded-savannah-03210.herokuapp.com"/>See Demo</a>
@@ -33,5 +40,7 @@ Some of the warehouses hire other logistic companies to distribute the stock. To
 - User can <strong> See total cases/pallets/trailers for each day of selected week on Line-chart</strong>
 
 
+## Screenshot
+![image](https://user-images.githubusercontent.com/61385379/213078370-f39f027b-a2dd-4dd1-a6d3-16cb4d0186b3.png)
 
   
