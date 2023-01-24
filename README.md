@@ -1,43 +1,44 @@
+
+## Introduction
+The Export Planning Tool is a powerful and user-friendly MERN stack application designed to assist warehouse managers in streamlining the process of estimating the required number of trailers at the time of receiving an order. With the increasing demand for faster deliveries, it is crucial for warehouses to accurately predict the number of trailers needed to distribute their stock efficiently. However, predicting the number of trailers before the warehouse order has been fully picked and the number of pallets available can be challenging.
+
+Our app utilizes historical data to provide accurate estimates based on the average of the five previous weeks, or specific days of the week. With the app's intuitive charts and graphs, you can easily identify seasonal order spikes and be prepared for the growing demand. The application is designed to be simple and easy to use, allowing warehouse managers to make better-informed decisions and improve overall efficiency.
+
+## Technologies Used
 [![React Badge](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)](#)
 [![Nodejs Badge](https://img.shields.io/badge/-Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A)](#)
 [![Mui Badge](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)](#)
 [![Mongo DB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](#)
 [![Chart Js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](#)
 [![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](#)
+[![Moment.JS Badge](https://img.shields.io/badge/-Moment.JS-black?style=for-the-badge)](#)
+[![React CountUpBadge](https://img.shields.io/badge/-React_CountUp-red?style=for-the-badge)](#)
+
+
+- **React**: A JavaScript library for building user interfaces
+- **Nodejs**: A JavaScript runtime built on Chrome's V8 JavaScript engine
+- **Material-UI**: A popular UI library for React
+- **MongoDB**: A NoSQL document-oriented database
+- **Chart.js**: A JavaScript library for creating charts and graphs
+- **Heroku**: A cloud platform to deploy and run web applications
+- **Moment.js**: A JavaScript library for working with dates and times
+- **react-countup**: A React component for animating numbers
 
 
 
-<br/>
-Also used <strong> Moment.js, react-countup</strong> libraries.
-<br>
-The App is hosted on Heroku, please allow some time to load application for the first time. 
-<a href="https://guarded-savannah-03210.herokuapp.com"/>See Demo</a>
 
-<h2>What is this App for..</h2>
-Some of the warehouses hire other logistic companies to distribute the stock. To speed up deliveries it is beneficial to request trailers as soon as the warehouse received the order. However, it is very difficult to predict the number of trailers before the warehouse order has been fully picked and the number of pallets available. There is always a risk to request too many or not enough trailers to distribute in full. Export Planning Tool is a MERN stack Application designed to simplify the process of estimating the required number of trailers at the time warehouse just received the order. All estimates are based on the average of the five previous weeks, or specific days of the week. With the app's charts, you can easily identify seasonal orders spikes, and be prepared for the growing demand.  <a href="https://guarded-savannah-03210.herokuapp.com"/>See Demo</a> 
-
-
-## How to run the app
-1. Either fork or download the app and open the folder in the cli.
-2. Install all dependencies using the "npm i" command.
-3. Create an account in MongoDB Atlas.
-4. Add ".env" file width two variables:  "Mongo_Atlas_Password" = your password, and "Mongo_login" = your login.
-5. Start back end using the "npm start" command.
-6. Open second terminal
-7. Go to "Client" folder using "cd client" install dependencies using "npm i" command.
-8. Start App using "npm start" command.
-9. Your local server will be running on port 3001 and front end on 3000.
 
 ## User Stories
-- User can <strong>INPUT</strong> number of cases has been ordered on particular day for each product category.
-- User can <strong>RETRIEVE </strong> number of cases has been ordered on particular day for each product category.
-- User can <strong>see total number of cases/pallets/trailers for all product categories of the day or week. </strong>
-- User can <strong> AMEND </strong> number of cases has been ordered on particular day for each product category.
-- User can <strong> see EXPECTED VALUE / NUMBER OF TRAILERS </strong> on particular day for each product category, based on average of 5 previous weeks.
-- User can <strong> see expected number of pallets / trailers based on actual number of cases </strong> once known from received order.
-- User can <strong> compare EXPECTED vs ACTUAL values</strong> of each product category for any week day <strong> on Bar-chart</strong> 
-- User can <strong> See cases / pallets / trailers of the last 5 weeks of the same weekday on Line-chart</strong>
-- User can <strong> See total cases/pallets/trailers for each day of selected week on Line-chart</strong>
+- As a warehouse manager, I want to **input the number of cases ordered for each product category on a specific day**, so that I can keep track of the inventory.
+- As a warehouse manager, I want to **retrieve the number of cases ordered for each product category on a specific day**, so that I can check the progress of the order.
+- As a warehouse manager, I want to s**ee the total number of cases, pallets, and trailers for all product categories of the day or week**, so that I can have an overview of the inventory.
+- As a warehouse manager, I want to **amend the number of cases ordered for each product category on a specific day**, so that I can make adjustments if needed.
+- As a warehouse manager, I want to **see the expected value or number of trailers for each product category on a specific day**, based on the average of the last five weeks, so that I can prepare for the demand.
+- As a warehouse manager, I want to **see the expected number of pallets and trailers based on the actual number of cases once known from the received order**, so that I can ensure efficient distribution.
+- As a warehouse manager, I want to **compare the expected values versus the actual values of each product category for any weekday on a bar chart**, so that I can identify any discrepancies.
+- As a warehouse manager, I want to **see the cases, pallets, and trailers of the last five weeks of the same weekday on a line chart**, so that I can identify any patterns or trends.
+- As a warehouse manager, I want to **see the total cases, pallets, and trailers for each day of a selected week on a line chart**, so that I can plan for the demand.
+- As a warehouse manager, I want to **be able to filter the charts by product category**, so that I can focus on specific products.
 
 
 ## Screenshot
