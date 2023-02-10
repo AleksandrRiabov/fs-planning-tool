@@ -25,7 +25,15 @@ Our app utilizes historical data to provide accurate estimates based on the aver
 - **react-countup**: A React component for animating numbers
 
 
+## Deployed
 
+This App is deployed on free heroku hosting, please allow some time when opening application for the first time.
+
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+
+:point_right: [Export Planning Tool](https://guarded-savannah-03210.herokuapp.com/) :point_left:
+
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
 
 
 ## User Stories
